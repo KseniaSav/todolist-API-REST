@@ -10,12 +10,15 @@ const App = () => {
     };
 
     return (
-        <div>
-            <h1>Todo List</h1>
-            <TaskForm onTaskAdded={handleTaskAdded} />
-            <TaskList key={refresh} />
+        <div className="container mt-5">
+            <div className="card p-4 shadow">
+                <h1 className="text-center mb-4">📝 Gestion des Tâches</h1>
+                    <TaskForm onTaskAdded={handleTaskAdded} />
+                    <TaskList key={refresh} />
+            </div>
         </div>
     );
 };
 
 export default App;
+

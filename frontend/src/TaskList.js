@@ -24,22 +24,24 @@ const TaskList = () => {
     };
 
     return (
-        <div>
-            <h2>Liste des Tâches</h2>
-            <ul>
-                {tasks.map(task => (
-                    <li key={task.id}>
-                        <span style={{ textDecoration: task.completed ? "line-through" : "none" }}>
-                            {task.name}
-                        </span>
-                        <button onClick={() => handleToggleComplete(task.id, task.completed)}>
-                            {task.completed ? "Annuler" : "Terminer"}
-                        </button>
-                        <button onClick={() => handleDelete(task.id)}>Supprimer</button>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <div className="container mt-4">
+                    <h2 className="text-center mb-4">📋 Liste des Tâches</h2>
+                    <ul className="list-group">
+                        {tasks.map(task => (
+                            <li key={task.id} className="list-group-item d-flex justify-content-between align-items-center">
+                                <span className={task.completed ? "text-decoration-line-through" : ""}>
+                                    {task.name}
+                                </span>
+                                <div>
+                                    <button className="btn btn-success btn-sm me-2" onClick={() => handleToggleComplete(task.id, task.completed)}>
+                                        {task.completed ? "Annuler" : "Terminer"}
+                                    </button>
+                                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(task.id)}>🗑️</button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
     );
 };
 

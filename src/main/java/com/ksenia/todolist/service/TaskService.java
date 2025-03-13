@@ -34,7 +34,7 @@ public class TaskService {
     public boolean updateTask(Long id, Task updatedTask) {
         return taskRepository.findById(id)
                 .map(existingTask -> {
-                    existingTask.setName(updatedTask.getName());
+                   // existingTask.setName(updatedTask.getName());
                     existingTask.setCompleted(updatedTask.isCompleted());
                     taskRepository.save(existingTask); // Mise à jour
                     return true;
